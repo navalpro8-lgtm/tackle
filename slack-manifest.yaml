@@ -1,0 +1,33 @@
+# Slack app manifest. Paste into https://api.slack.com/apps -> Create New App -> From a manifest.
+# Replace every YOUR-TUNNEL with your public HTTPS host (e.g. abc123.ngrok-free.app).
+# When you add a command or event in src/, add it here too.
+
+display_information:
+  name: Tackle
+
+features:
+  bot_user:
+    display_name: Tackle
+    always_online: false
+  slash_commands:
+    - command: /tackle-ping
+      url: https://YOUR-TUNNEL/slack/events
+      description: Replies with the workspace name and the time
+      should_escape: false
+
+oauth_config:
+  redirect_urls:
+    - https://YOUR-TUNNEL/slack/oauth_redirect
+  scopes:
+    bot:
+      - commands # register slash commands
+      - team:read # /tackle-ping reads the workspace name
+
+settings:
+  event_subscriptions:
+    request_url: https://YOUR-TUNNEL/slack/events
+    bot_events:
+      - app_uninstalled # delete stored tokens when a workspace removes the app
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
