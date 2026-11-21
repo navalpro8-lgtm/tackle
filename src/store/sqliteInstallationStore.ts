@@ -61,10 +61,14 @@ export class SqliteInstallationStore implements InstallationStore {
     this.#now = now;
   }
 
+  // better-sqlite3 is synchronous, so these methods have no `await`. They stay `async`
+  // because Bolt's interface expects Promises, and `async` turns throws into rejections.
+  /* eslint-disable @typescript-eslint/require-await */
+
   async storeInstallation<AuthVersion extends 'v1' | 'v2'>(
     installation: Installation<AuthVersion, boolean>,
   ): Promise<void> {
-    const key = keyFromInstallation(installation as Installation);
+    const key = keyFromInstallation(installation);
     const now = this.#now().toISOString();
     this.#db
       .prepare(

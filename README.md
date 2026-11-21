@@ -11,7 +11,7 @@ A TypeScript starter kit for Slack apps that any number of workspaces can instal
 
 ## Quick start
 
-You need **Node 22+** and a tunnel tool such as [ngrok](https://ngrok.com/) or
+You need **Node 22.9+** and a tunnel tool such as [ngrok](https://ngrok.com/) or
 [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/).
 
 **1. Install and create your `.env`**

@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.9"
   },
   "scripts": {
     "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
@@ -40,7 +40,7 @@
     "zod": "^4.6.7"
   },
   "allowScripts": {
-    "better-sqlite3@13.2.0": true,
-    "esbuild@0.28.2": true
+    "esbuild": true,
+    "better-sqlite3": false
   }
 }

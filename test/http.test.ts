@@ -38,7 +38,7 @@ describe('HTTP endpoints', () => {
       expect(res.headers['content-type']).toMatch(/json/);
       expect(res.headers['cache-control']).toBe('no-store');
       expect(res.body).toMatchObject({ status: 'ok', checks: { database: 'ok' } });
-      expect(typeof res.body.uptimeSeconds).toBe('number');
+      expect(typeof (res.body as { uptimeSeconds: unknown }).uptimeSeconds).toBe('number');
     });
 
     it('returns 503 when the database is unavailable', async () => {
