@@ -1,4 +1,7 @@
-﻿# Tackle
+# Tackle
+
+[![CI](https://github.com/navalpro8-lgtm/tackle/actions/workflows/ci.yml/badge.svg)](https://github.com/navalpro8-lgtm/tackle/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A TypeScript starter kit for Slack apps that any number of workspaces can install.
 
@@ -142,6 +145,11 @@ test/               Vitest tests, no Slack account or network needed
 
 Dev only: TypeScript, tsx, Vitest, supertest, ESLint, Prettier. `.env` is loaded by Node
 itself (`--env-file`), so there's no `dotenv`.
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) to get started, or pick a
+[`good first issue`](https://github.com/navalpro8-lgtm/tackle/labels/good%20first%20issue).
 
 ## License
 
