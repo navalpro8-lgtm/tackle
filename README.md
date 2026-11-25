@@ -61,6 +61,23 @@ app, then type `/tackle-ping` in any channel.
 >   app settings.
 > - To install in other workspaces, turn on **Manage Distribution → Public distribution**.
 
+## See it work in two workspaces
+
+Tackle stores one installation per workspace, so the quickest way to see that it really is multi-workspace is to install it twice.
+
+1. Finish the quick start above and install it in your first workspace.
+2. Create a second, free workspace at <https://slack.com/create>. Make sure **Manage Distribution → Public distribution** is on for your Slack app.
+3. Open `https://YOUR-TUNNEL/slack/install` again, and this time pick the second workspace in the top-right dropdown on Slack's approval page. Approve it.
+4. Type `/tackle-ping` in each workspace. Each one answers with its own name: `Pong from *Workspace A*` in the first, `Pong from *Workspace B*` in the second. Only you see the reply.
+
+Each install gets its own row in the `installations` table (one per workspace, keyed by team ID), and its tokens are encrypted. If you have the `sqlite3` command-line tool, you can look:
+
+```sh
+sqlite3 data/tackle.db "select team_id, team_name from installations"
+```
+
+Reinstalling a workspace replaces its row, so you won't get duplicates.
+
 ## Configuration
 
 Every setting is listed in [`.env.example`](.env.example) and checked in
